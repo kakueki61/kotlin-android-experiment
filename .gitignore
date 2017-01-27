@@ -1,0 +1,24 @@
+# default
+.gradle
+/local.properties
+/build
+/captures
+.externalNativeBuild
+
+# generated files
+gen
+bin
+
+# IDE
+out
+/.idea/workspace.xml
+/.idea/libraries
+*.iml
+.project
+.classpath
+
+# OSX
+.DS_Store
+
+# Windows
+Thumbs.db
