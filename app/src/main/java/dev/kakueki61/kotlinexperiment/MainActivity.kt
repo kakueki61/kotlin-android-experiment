@@ -25,11 +25,14 @@ class MainActivity : AppCompatActivity() {
 
         findViewById(R.id.camera_button).setOnClickListener {
             val capture = createCaptureFile()
-            val captureUri = FileProvider.getUriForFile(applicationContext, "jp.port_medical.tv.fileprovider", capture)
+            captureUri = FileProvider.getUriForFile(applicationContext, "dev.kakueki61.kotlinexperiment.fileprovider", capture)
             Log.i(TAG, "contentUri: $captureUri")
+
+            grantUriPermission("com.google.android.GoogleCamera", captureUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
 
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
+            intent.flags = Intent.FLAG_GRANT_WRITE_URI_PERMISSION
             startActivityForResult(intent, 1000)
         }
     }
