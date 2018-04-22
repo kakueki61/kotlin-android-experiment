@@ -11,14 +11,44 @@
     tools:context="dev.kakueki61.kotlinexperiment.MainActivity">
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:orientation="horizontal"
+        android:layout_below="@id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/transition_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="go to next" />
+        <Button
+            android:id="@+id/databinding_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="go to databinding" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/image_view"
+        android:transitionName="hoge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttons"/>
     <Button
         android:id="@+id/camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="camera"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/image_view"
+        />
+    <ImageView
+        android:id="@+id/capture_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/camera_button"
         />
 </RelativeLayout>
