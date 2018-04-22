@@ -11,8 +11,8 @@ bin
 
 # IDE
 out
-/.idea/workspace.xml
-/.idea/libraries
+.idea/*
+!.idea/codeStyleSettings.xml
 *.iml
 .project
 .classpath
