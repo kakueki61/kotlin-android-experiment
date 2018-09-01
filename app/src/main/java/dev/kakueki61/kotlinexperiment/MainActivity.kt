@@ -17,11 +17,14 @@ class MainActivity : AppCompatActivity() {
         const val TAG = "MainActivity"
     }
 
+    var captureUri: Uri? = null
+
+    val binding by lazy { DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d(TAG, "onCreate")
         databinding_button.setOnClickListener {
             startActivity(Intent(applicationContext, DataBindingActivity::class.java))
         }
@@ -37,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             intent.flags = Intent.FLAG_GRANT_WRITE_URI_PERMISSION
             startActivityForResult(intent, 1000)
+        }
+
+        binding.button.setOnClickListener {
+            startActivity(Intent(applicationContext, MotionLayoutActivity::class.java))
         }
     }
 
@@ -69,5 +76,16 @@ class MainActivity : AppCompatActivity() {
         val capture = File.createTempFile(fileName, ".jpg", dir)
         return capture
 
+    }
+
+    private fun enableTransition() {
+        // inside your activity (if you did not enable transitions in your theme)
+        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+
+        // set an exit transition
+        window.exitTransition = Explode()
+        window.sharedElementExitTransition = Explode()
+        window.sharedElementExitTransition = Slide()
+        window.sharedElementExitTransition = Fade()
     }
 }
