@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.d(TAG, "onCreate")
+        databinding_button.setOnClickListener {
+            startActivity(Intent(applicationContext, DataBindingActivity::class.java))
+        }
 
         findViewById(R.id.camera_button).setOnClickListener {
             val capture = createCaptureFile()
