@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, DataBindingActivity::class.java))
         }
 
-        findViewById(R.id.camera_button).setOnClickListener {
+        findViewById<Button>(R.id.camera_button).setOnClickListener {
             val capture = createCaptureFile()
             captureUri = FileProvider.getUriForFile(applicationContext, "dev.kakueki61.kotlinexperiment.fileprovider", capture)
             Log.i(TAG, "contentUri: $captureUri")
