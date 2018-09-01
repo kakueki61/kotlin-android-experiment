@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KotlinExperiment</string>
+    <string name="title_activity_data_binding">DataBindingActivity</string>
 </resources>
