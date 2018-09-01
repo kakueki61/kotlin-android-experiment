@@ -65,6 +65,13 @@
             android:layout_below="@+id/capture_image"
             android:layout_toEndOf="@+id/capture_image"
             android:text="MotionLayout" />
+
+        <Button
+            android:id="@+id/transition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button"
+            android:text="Shared Element" />
     </RelativeLayout>
 
 </layout>

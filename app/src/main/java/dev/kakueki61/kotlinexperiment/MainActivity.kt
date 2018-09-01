@@ -1,12 +1,21 @@
 package dev.kakueki61.kotlinexperiment
 
 import android.content.Intent
+import android.databinding.DataBindingUtil
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
+import android.transition.Explode
+import android.transition.Fade
+import android.transition.Slide
 import android.util.Log
+import android.view.Window
+import android.widget.Button
+import dev.kakueki61.kotlinexperiment.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -45,6 +54,10 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             startActivity(Intent(applicationContext, MotionLayoutActivity::class.java))
         }
+
+        binding.transition.setOnClickListener {
+            startActivity(Intent(applicationContext, GridImageActivity::class.java))
+        }
     }
 
     override fun onResume() {
@@ -65,6 +78,9 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.i(TAG,"onActivityResult: $requestCode, $resultCode, $data")
         Log.i("", "data: ${data?.data}")
+
+        capture_image.setImageURI(captureUri)
+
         super.onActivityResult(requestCode, resultCode, data)
     }
 

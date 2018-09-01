@@ -40,6 +40,8 @@
             android:label="@string/title_activity_data_binding"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MotionLayoutActivity" />
+        <activity android:name=".GridImageActivity" />
+        <activity android:name=".ImageDetailActivity" />
     </application>
 
 </manifest>
