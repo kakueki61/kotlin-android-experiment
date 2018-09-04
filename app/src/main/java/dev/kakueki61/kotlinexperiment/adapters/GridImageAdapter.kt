@@ -15,6 +15,7 @@ import dev.kakueki61.kotlinexperiment.databinding.LayoutGridImageItemBinding
 class GridImageAdapter(private val onItemClick: (view: View, position: Int) -> Unit) : RecyclerView.Adapter<GridImageAdapter.VH>() {
     companion object {
         val images = listOf(
+                "http://placehold.jp/24/cc9999/993333/600x1200.png",
                 "http://placehold.jp/24/cc9999/993333/150x100.png",
                 "http://placehold.jp/24/cc9999/993333/150x150.png",
                 "http://placehold.jp/24/cc9999/993333/250x200.png",
@@ -28,6 +29,7 @@ class GridImageAdapter(private val onItemClick: (view: View, position: Int) -> U
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
+        if (itemHeight > 0) holder.binding.imageView.minimumHeight = itemHeight
         Picasso.with(holder.binding.imageView.context)
                 .load(images[position])
                 .into(holder.binding.imageView)
@@ -40,6 +42,14 @@ class GridImageAdapter(private val onItemClick: (view: View, position: Int) -> U
 
     override fun getItemCount(): Int {
         return images.size
+    }
+
+    private var itemHeight = 0
+
+    fun setItemHeight(height: Int) {
+        if (itemHeight == height) return
+        itemHeight = height
+        notifyDataSetChanged()
     }
 
     class VH(view: View, onItemClick: (view: View, position: Int) -> Unit) : RecyclerView.ViewHolder(view) {

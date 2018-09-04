@@ -12,6 +12,7 @@ import dev.kakueki61.kotlinexperiment.databinding.ActivitySharedElementTransitio
 class GridImageActivity : AppCompatActivity() {
 
     private val binding by lazy { DataBindingUtil.setContentView<ActivitySharedElementTransitionBinding>(this, R.layout.activity_shared_element_transition) }
+    private val adapter by lazy { GridImageAdapter { v, p -> onItemClick(v, p) } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +21,12 @@ class GridImageActivity : AppCompatActivity() {
 
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
-        binding.recyclerView.adapter = GridImageAdapter { v, p -> onItemClick(v, p) }
+        binding.recyclerView.adapter = adapter
+
+        binding.recyclerView.viewTreeObserver.addOnGlobalLayoutListener {
+            val height = binding.recyclerView.width / 2
+            adapter.setItemHeight(height)
+        }
     }
 
     private fun onItemClick(view: View, position: Int) {
