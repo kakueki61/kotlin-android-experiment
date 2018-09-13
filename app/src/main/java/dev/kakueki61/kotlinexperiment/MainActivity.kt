@@ -58,6 +58,10 @@ class MainActivity : AppCompatActivity() {
         binding.transition.setOnClickListener {
             startActivity(Intent(applicationContext, GridImageActivity::class.java))
         }
+
+        binding.viewpagerTransition.setOnClickListener {
+            startActivity(GridImageActivity.intent(this, true))
+        }
     }
 
     override fun onResume() {
@@ -76,7 +80,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.i(TAG,"onActivityResult: $requestCode, $resultCode, $data")
+        Log.i(TAG, "onActivityResult: $requestCode, $resultCode, $data")
         Log.i("", "data: ${data?.data}")
 
         capture_image.setImageURI(captureUri)
