@@ -32,7 +32,7 @@ jobs:
 
   firebase-test-lab:
     docker:
-      - image: circleci/android:api-25-alpha
+      - image: circleci/android:api-27
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
