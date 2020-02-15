@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">KotlinExperiment</string>
     <string name="title_activity_data_binding">DataBindingActivity</string>
+    <string name="hello_blank_fragment">hello blank fragment</string>
 </resources>
