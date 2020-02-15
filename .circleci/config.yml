@@ -29,6 +29,29 @@ jobs:
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: app/build/test-results
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+
+  firebase-test-lab:
+    docker:
+      - image: circleci/android:api-25-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - run:
+          name: Build debug APK and release APK
+          command: |
+            ./gradlew :app:assembleDebug
+            ./gradlew :app:assembleDebugAndroidTest
+      - run:
+          name: current dir
+          command: pwd
+      - run:
+          name: Test with Firebase Test Lab
+          command: >
+            sudo gcloud firebase test android run \
+              --type robo \
+              --app app/build/outputs/apk/debug/app-debug.apk \
+              --device model=Pixel2,version=28,locale=en,orientation=portrait
+
   test:
     docker:
       - image: circleci/android:api-25-alpha
