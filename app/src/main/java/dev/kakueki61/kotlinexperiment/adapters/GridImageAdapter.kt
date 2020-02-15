@@ -53,7 +53,7 @@ class GridImageAdapter(private val onItemClick: (view: View, position: Int) -> U
     }
 
     class VH(view: View, onItemClick: (view: View, position: Int) -> Unit) : RecyclerView.ViewHolder(view) {
-        val binding: LayoutGridImageItemBinding = DataBindingUtil.bind(view)
+        val binding: LayoutGridImageItemBinding = LayoutGridImageItemBinding.bind(view)
 
         init {
             binding.root.apply {
