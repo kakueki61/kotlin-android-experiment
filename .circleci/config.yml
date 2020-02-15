@@ -63,3 +63,10 @@ jobs:
           command: |
             ./gradlew :app:assembleDebug
             ./gradlew :app:assembleDebugAndroidTest
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - firebase-test-lab
