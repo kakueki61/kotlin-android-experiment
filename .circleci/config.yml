@@ -38,10 +38,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build debug APK and release APK
+          name: Build debug APK
           command: |
             ./gradlew :app:assembleDebug
-            ./gradlew :app:assembleDebugAndroidTest
       - run:
           name: current dir
           command: pwd
