@@ -26,6 +26,7 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    namespace 'dev.kakueki61.kotlinexperiment'
 }
 
 dependencies {
