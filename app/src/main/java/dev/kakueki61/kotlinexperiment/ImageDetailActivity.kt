@@ -89,6 +89,7 @@ class ImageDetailActivity : AppCompatActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java", ReplaceWith("finishAfterTransition()"))
     override fun onBackPressed() {
         finishAfterTransition()
     }

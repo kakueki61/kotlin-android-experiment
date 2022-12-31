@@ -61,6 +61,7 @@ class ImageViewPagerActivity : AppCompatActivity() {
         })
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val intent = Intent().apply { putExtra("current", position) }
         setResult(Activity.RESULT_OK, intent)

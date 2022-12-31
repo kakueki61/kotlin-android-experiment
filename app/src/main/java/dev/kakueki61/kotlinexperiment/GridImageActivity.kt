@@ -60,6 +60,7 @@ class GridImageActivity : AppCompatActivity() {
         })
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 9999) {
             Log.w("onActivityResult", "data: $data")

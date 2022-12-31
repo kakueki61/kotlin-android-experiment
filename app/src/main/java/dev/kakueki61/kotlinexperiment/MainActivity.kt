@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onDestroy")
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.i(TAG, "onActivityResult: $requestCode, $resultCode, $data")
         Log.i("", "data: ${data?.data}")
