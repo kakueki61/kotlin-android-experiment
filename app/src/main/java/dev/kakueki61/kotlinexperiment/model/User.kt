@@ -1,6 +1,6 @@
 package dev.kakueki61.kotlinexperiment.model
 
-import android.databinding.BaseObservable
+import androidx.databinding.BaseObservable
 
 /**
  * Created by kodama-t on 2017/12/06.

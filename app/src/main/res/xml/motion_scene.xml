@@ -10,16 +10,15 @@
             motion:dragDirection="dragRight"
             motion:touchAnchorId="@id/view_motion"
             motion:touchAnchorSide="bottom" />
-        <OnClick motion:target="@id/view_motion" />
+        <OnClick motion:targetId="@id/view_motion" />
         <KeyFrameSet>
             <KeyPosition
                 motion:framePosition="50"
                 motion:keyPositionType="pathRelative"
                 motion:percentY="-0.5"
-                motion:target="@id/view_motion" />
+                motion:motionTarget="@id/view_motion" />
         </KeyFrameSet>
     </Transition>
-
 
     // 始まりのViewの状態
     <ConstraintSet android:id="@+id/start">
@@ -45,5 +44,4 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
-
 </MotionScene>

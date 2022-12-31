@@ -3,11 +3,11 @@ package dev.kakueki61.kotlinexperiment
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.SharedElementCallback
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
+import androidx.core.app.SharedElementCallback
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import dev.kakueki61.kotlinexperiment.adapters.ImageDetailPagerAdapter
@@ -26,14 +26,13 @@ class ImageViewPagerActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityImageViewPagerBinding
-    private lateinit var imageUrls: Array<String>
     var position = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_image_view_pager)
 
-        imageUrls = intent.getStringArrayExtra("imageUrls")
+        val imageUrls = intent.getStringArrayExtra("imageUrls") ?: return
         position = intent.getIntExtra("position", -1)
         binding.viewPager.adapter = ImageDetailPagerAdapter(supportFragmentManager, imageUrls.toList())
         binding.viewPager.currentItem = position

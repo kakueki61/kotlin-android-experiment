@@ -1,8 +1,8 @@
 package dev.kakueki61.kotlinexperiment
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
@@ -34,7 +34,7 @@ class DataBindingActivity : AppCompatActivity() {
 //        return super.onCreateOptionsMenu(menu)
 //    }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         Log.i(this.javaClass.simpleName, "onOptionsItemSelected")
         return super.onOptionsItemSelected(item)
     }
