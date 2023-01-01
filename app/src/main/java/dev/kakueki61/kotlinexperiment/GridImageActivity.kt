@@ -3,11 +3,11 @@ package dev.kakueki61.kotlinexperiment
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.SharedElementCallback
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
+import androidx.core.app.SharedElementCallback
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import android.util.Log
 import android.view.View
 import dev.kakueki61.kotlinexperiment.adapters.GridImageAdapter
@@ -60,6 +60,7 @@ class GridImageActivity : AppCompatActivity() {
         })
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 9999) {
             Log.w("onActivityResult", "data: $data")
